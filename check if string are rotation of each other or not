@@ -1,0 +1,29 @@
+class Solution
+{
+    public:
+    //Function to check if two strings are rotations of each other or not.
+    bool areRotations(string s1,string s2)
+    {
+        // Your code here
+        int n=s1.size() ,i2=0, start=0;
+        while(start<n){
+            while(s1[start]!=s2[i2]&&start<n){
+                start++;
+            }
+            int i1=start;
+            bool flag=true;
+            while(i2<n){
+                if(s1[i1%n]==s2[i2]){
+                    i1++;i2++;
+                }
+                else{
+                    flag=false;
+                    i2=0;start++;
+                    break;
+                }
+            }
+            if(flag)return true;
+        }
+        return false;
+    }
+};
